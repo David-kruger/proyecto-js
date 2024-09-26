@@ -3,12 +3,12 @@ Proyecto interfaz de usuario para alquiler de pisos utilizando HTML, CSS Y JS
 
 En esta rama los estilos se estatn trabajando mediante tailwind.
 Para instalar tailwind primero en la terminal de Vscode de nuestro proyecto escribimos
-  -npm init (Inicializar npm y crear el archivo de configuracion).
+  - npm init (Inicializar npm y crear el archivo de configuracion).
     Escribimos el nombre del proyecto, una descripcion y escribimos el nombre del archivo principal
-  -Siguiendo la documentacion de tailwind (https://tailwindcss.com/docs/installation/using-postcss)
+  - Siguiendo la documentacion de tailwind (https://tailwindcss.com/docs/installation/using-postcss)
     En terminal ejecutamos npm install -D tailwindcss postcss autoprefixer
     npx tailwindcss init
-  -Creamos un archivo con el siguiente nombre postcss.config.js
+  - Creamos un archivo con el siguiente nombre postcss.config.js
     En este archivo agregamos lo siguiente:
     module.exports = {
     plugins: {
@@ -16,11 +16,11 @@ Para instalar tailwind primero en la terminal de Vscode de nuestro proyecto escr
       autoprefixer: {},
       }
     }
-  -Se crean los directorios public y src dentro de public (./style/tailwind.css) dentro de src (./css/main.css)
-  -En el archivo de configuracion tailwind.config.js
+  - Se crean los directorios public y src dentro de public (./style/tailwind.css) dentro de src (./css/main.css)
+  - En el archivo de configuracion tailwind.config.js
     modificamos la direccion del archivo
     content: ["./public/**/*.{html,js}"],
-  -En nuestro archivo main.css
+  - En nuestro archivo main.css
     Agregamoslas directivas de tailwind 
       @tailwind base;
       @tailwind components;
