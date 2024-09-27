@@ -3,6 +3,9 @@ module.exports = {
   content: ["./public/**/*.{html,js}"],
   theme: {
     extend: {
+      backgroundImage:{
+        'newyork': "url('../img/newyork.jpg')",
+      },
       backgroundColor:({ theme }) => ({
         ...theme('colors'),
         'bg_color_primary': '#F8F8F8',
