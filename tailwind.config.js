@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage:{
         'newyork': "url('../img/newyork.jpg')",
+        'register': "url('../img/register.jpg')",
       },
       backgroundColor:({ theme }) => ({
         ...theme('colors'),
