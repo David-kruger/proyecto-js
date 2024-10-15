@@ -26,6 +26,7 @@ module.exports = {
         'primary_text_white': '#F8F8F8',
         'secondary_text_white': '#E7E7E7',
         'terciary_text_white': '#C8C8C8',
+        'text_danger': '#FF609A',
       }),
       fontFamily: {
         Montserrat:['"Montserrat"'],
