@@ -39,7 +39,7 @@
                 <div class="font-Montserrat font-bold text-primary_text text-xl">
                     Create your Account
                 </div>
-                <form action="" class="w-11/12 flex flex-col gap-4 items-center">
+                <form id="form_register" onsubmit="submitForm(event)" class="w-11/12 flex flex-col gap-4 items-center">
                     <div class="flex flex-col">
                         <span class="font-Opensans text-xs ml-6 text-secondary_text">First Name</span>
                         <label><i class="fa-solid fa-id-card" style="color: #1f1f1f;"></i><input type="text" name="first_name" placeholder="First Name" required minlength="2" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
@@ -76,7 +76,7 @@
                         <p><p class="ml-6 text-text_danger font-Opensans hidden"></p></p>
                     </div>
                     
-                    <button class="w-11/12 max-w-[430px] bg-gradient-to-r from-[#f0877c] to-[#ff609a] rounded-2xl font-Montserrat font-bold text-xl text-primary_text_white drop-shadow-xl focus:opacity-75">Sign Up</button>
+                    <button type="submit" class="w-11/12 max-w-[430px] bg-gradient-to-r from-[#f0877c] to-[#ff609a] rounded-2xl font-Montserrat font-bold text-xl text-primary_text_white drop-shadow-xl focus:opacity-75">Sign Up</button>
                 </form>
                 <div class="flex flex-col items-center">
                     <span class="text-secondary_text_white font-Opensans font-normal text-xs md:text-secondary_text">Already have an Account?</span>
@@ -86,6 +86,7 @@
         </div>
     </div>
 
+    <script src="./js/register.js"></script>
 </body>
 </html>
 

@@ -1068,11 +1068,6 @@ select {
   border-color: rgb(255 255 255 / 0.6);
 }
 
-.border-\[\#47AFFF\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(71 175 255 / var(--tw-border-opacity));
-}
-
 .bg-bg_color_primary {
   --tw-bg-opacity: 1;
   background-color: rgb(248 248 248 / var(--tw-bg-opacity));
@@ -1087,6 +1082,11 @@ select {
   background-color: rgb(231 231 231 / 0.3);
 }
 
+.bg-bg_color_terciary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(200 200 200 / var(--tw-bg-opacity));
+}
+
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -1094,16 +1094,6 @@ select {
 
 .bg-transparent {
   background-color: transparent;
-}
-
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-bg_color_terciary {
-  --tw-bg-opacity: 1;
-  background-color: rgb(200 200 200 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-br {
@@ -1269,11 +1259,6 @@ select {
   font-weight: 400;
 }
 
-.text-gray-900 {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-
 .text-primary_text {
   --tw-text-opacity: 1;
   color: rgb(31 31 31 / var(--tw-text-opacity));
@@ -1297,11 +1282,6 @@ select {
 .text-text_danger {
   --tw-text-opacity: 1;
   color: rgb(255 96 154 / var(--tw-text-opacity));
-}
-
-.text-terciary_text {
-  --tw-text-opacity: 1;
-  color: rgb(174 174 174 / var(--tw-text-opacity));
 }
 
 .shadow-md {
@@ -1386,16 +1366,6 @@ select {
 .placeholder\:text-secondary_text::placeholder {
   --tw-text-opacity: 1;
   color: rgb(95 95 95 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-terciary_text::-moz-placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(174 174 174 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-terciary_text::placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(174 174 174 / var(--tw-text-opacity));
 }
 
 .after\:absolute::after {
@@ -1487,13 +1457,13 @@ select {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.focus\:border-\[\#E7E7E7\]\/60:focus {
-  border-color: rgb(231 231 231 / 0.6);
-}
-
 .focus\:border-\[\#47AFFF\]:focus {
   --tw-border-opacity: 1;
   border-color: rgb(71 175 255 / var(--tw-border-opacity));
+}
+
+.focus\:border-\[\#E7E7E7\]\/60:focus {
+  border-color: rgb(231 231 231 / 0.6);
 }
 
 .focus\:font-semibold:focus {
@@ -1508,31 +1478,9 @@ select {
   opacity: 0.75;
 }
 
-.focus\:opacity-95:focus {
-  opacity: 0.95;
-}
-
-.focus\:opacity-15:focus {
-  opacity: 0.15;
-}
-
-.focus\:opacity-55:focus {
-  opacity: 0.55;
-}
-
-.focus\:opacity-35:focus {
-  opacity: 0.35;
-}
-
 .focus\:shadow-2xl:focus {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.focus\:shadow-xl:focus {
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -1547,18 +1495,8 @@ select {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.focus\:drop-shadow-\[0_0_16px_rgba\(71\2c 175\2c 255\2c 0\.25\)\]:focus {
-  --tw-drop-shadow: drop-shadow(0 0 16px rgba(71,175,255,0.25));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .focus\:drop-shadow-\[0_0_8px_rgba\(71\2c 175\2c 255\2c 0\.25\)\]:focus {
   --tw-drop-shadow: drop-shadow(0 0 8px rgba(71,175,255,0.25));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.focus\:drop-shadow-\[0_0_8px_rgba\(71\2c 175\2c 255\2c 0\.15\)\]:focus {
-  --tw-drop-shadow: drop-shadow(0 0 8px rgba(71,175,255,0.15));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -1751,11 +1689,6 @@ select {
   .dark\:bg-gray-700 {
     --tw-bg-opacity: 1;
     background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-  }
-
-  .dark\:text-gray-300 {
-    --tw-text-opacity: 1;
-    color: rgb(209 213 219 / var(--tw-text-opacity));
   }
 
   .peer:focus ~ .dark\:peer-focus\:ring-blue-800 {

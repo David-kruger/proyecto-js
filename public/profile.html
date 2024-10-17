@@ -84,45 +84,45 @@
         </div>
         
         <div class="w-11/12 max-w-[700px] my-4 py-4 rounded-2xl flex flex-col items-center bg-bg_color_primary drop-shadow-[0_0_8px_rgba(0,0,0,0.25)]">
-            <form class="w-full  grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2">
+            <form id="profile_form" onsubmit="updateProfile(event)" class="w-full  grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2">
 
                 <div class="flex flex-col">
                     <span class="font-Opensans text-xs ml-6 text-secondary_text">First Name</span>
-                    <label><i class="fa-solid fa-id-card" style="color: #1f1f1f;"></i><input type="text" name="first_name" placeholder="First Name" required minlength="2" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
+                    <label><i class="fa-solid fa-id-card" style="color: #1f1f1f;"></i><input type="text" name="first_name" placeholder="First Name" minlength="2" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
                     <p class="ml-6 text-text_danger font-Opensans hidden"></p>
                 </div>
 
                 <div class="flex flex-col">
                     <span class="font-Opensans text-xs ml-6 text-secondary_text">Last Name</span>
-                    <label><i class="fa-solid fa-id-card" style="color: #1f1f1f;"></i><input type="text" name="last_name" placeholder="Last Name" required minlength="2" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
+                    <label><i class="fa-solid fa-id-card" style="color: #1f1f1f;"></i><input type="text" name="last_name" placeholder="Last Name" minlength="2" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
                     <p class="ml-6 text-text_danger font-Opensans hidden"></p>
                 </div>
 
                 <div class="flex flex-col">
                     <span class="font-Opensans text-xs ml-6 text-secondary_text">Email</span> 
-                    <label><i class="fa-solid fa-id-card" style="color: #1f1f1f;"></i><input type="email" name="email" placeholder="example@gmail.com" required disabled class="ml-2 rounded-lg bg-bg_color_terciary placeholder:text-primary_text"></label>
+                    <label><i class="fa-solid fa-id-card" style="color: #1f1f1f;"></i><input type="email" name="email" placeholder="example@gmail.com" disabled class="ml-2 rounded-lg bg-bg_color_terciary placeholder:text-primary_text"></label>
                     <p class="ml-6 text-text_danger font-Opensans hidden"></p>
                 </div>
 
                 <div class="flex flex-col">
                     <span class="font-Opensans text-xs ml-6 text-secondary_text">Birth Date</span>
-                    <label><i class="fa-solid fa-calendar-days" style="color: #1f1f1f;"></i><input type="date" name="birth_date" placeholder="Birth Date" required  min="2004-01-01" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
+                    <label><i class="fa-solid fa-calendar-days" style="color: #1f1f1f;"></i><input type="date" name="birth_date" placeholder="Birth Date" min="2004-01-01" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
                     <p class="ml-6 text-text_danger font-Opensans hidden"></p>
                 </div>
                 
                 <div class="flex flex-col">
                     <span class="font-Opensans text-xs ml-6 text-secondary_text">Password</span>
-                    <label ><i class="fa-solid fa-unlock" style="color: #1f1f1f;"></i><input type="password" name="password" placeholder="Password" required minlength="6" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
+                    <label ><i class="fa-solid fa-unlock" style="color: #1f1f1f;"></i><input type="password" name="password" placeholder="Password" minlength="6" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
                     <p class="ml-6 text-text_danger font-Opensans hidden"></p>
                 </div>
         
                 <div class="flex flex-col">
                     <span class="font-Opensans text-xs ml-6 text-secondary_text">Confirm Password</span>
-                    <label ><i class="fa-solid fa-unlock" style="color: #1f1f1f;"></i><input type="password" name="confirm_password" placeholder="Password" required minlength="6" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
+                    <label ><i class="fa-solid fa-unlock" style="color: #1f1f1f;"></i><input type="password" name="confirm_password" placeholder="Password" minlength="6" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
                     <p class="ml-6 text-text_danger font-Opensans hidden"></p>
                 </div>
                 
-                <button class="w-11/12 max-w-[430px] bg-gradient-to-r from-[#f0877c] to-[#ff609a] rounded-2xl font-Montserrat font-bold text-xl text-primary_text_white drop-shadow-xl focus:opacity-75 md:col-span-2">Update</button>
+                <button type="submit" class="w-11/12 max-w-[430px] bg-gradient-to-r from-[#f0877c] to-[#ff609a] rounded-2xl font-Montserrat font-bold text-xl text-primary_text_white drop-shadow-xl focus:opacity-75 md:col-span-2">Update</button>
             </form>
         </div>
     </section>
@@ -224,6 +224,7 @@
         </a>
     </div>
    
+    <script src="./js/profile.js"></script>
 </body>
 </html>
 
