@@ -1,12 +1,13 @@
 class Flat {
-    constructor (city,streetName,streetNumber,areaSize,ac,yearBuilt,rentPrice,dateAvailable) {
+    constructor (id,city,streetName,streetNumber,areaSize,ac,yearBuilt,rentPrice,dateAvailable) {
+        this.id = id;
         this.city = city;
         this.streetName = streetName;
         this.streetNumber = streetNumber;
-        this.areaSize = areaSize;
+        this.areaSize = parseFloat(areaSize);
         this.ac = ac;
         this.yearBuilt = yearBuilt;
-        this.rentPrice = rentPrice;
+        this.rentPrice = parseFloat(rentPrice);
         this.dateAvailable = dateAvailable;
     }
 }
@@ -17,9 +18,13 @@ const newFlatForm = (event) =>{
 
     //crear una varialbe que guarde la informacion del formulario 
     const form = event.target;
+
+    // obtener la hora exacta al momento que se crea un flat y con ese valor asignarle un id unico
+    const date = new Date();
     
     // crear un objeto de la clase newFlat
     const newFlat = new Flat (
+        date.getTime(),
         form.elements['city'].value,
         form.elements['street_name'].value,
         form.elements['street_number'].value,

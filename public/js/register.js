@@ -1,13 +1,13 @@
 // clase creadora de Usuarios
 class User{
-    constructor (firstName, lastName,birthDate,email,password,confirmPassword,favoriteFlats=null) {
+    constructor (firstName, lastName,birthDate,email,password,confirmPassword) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        this.favoriteFlats = favoriteFlats;
+        
     }
 }
 
