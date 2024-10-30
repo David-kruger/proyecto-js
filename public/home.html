@@ -74,28 +74,42 @@
         </div>
     </nav>
 
+    <!-- Tabla de datos -->
+    <section class="mx-auto w-11/12 my-4 overflow-x-auto">
+        <table id="flats_table" class="w-full table-auto border-collapse ">
+            <thead>
+                <tr class="border-y border-gray-300">
+                    <th class="py-2 px-3 whitespace-nowrap"><span class="align-top">City</span> <button onclick="orderTable('city')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                          </svg> 
+                    </button></th>
+                    <th class="py-2 px-3 whitespace-nowrap ">Street Name </th>
+                    <th class="py-2 px-3 whitespace-nowrap">Street Number</th>
+                    <th class="py-2 px-3 whitespace-nowrap">Has AC</th>
 
-    <section class="mx-auto ">
-        <table id="flats_table" class="border-collapse border ">
-            <thead class="border">
-                <tr>
-                    <th class="border">City</th>
-                    <th class="border">Street Name</th>
-                    <th class="border">Street Number</th>
-                    <th class="border">Has AC</th>
-                    <th class="border">Area Size</th>
-                    <th class="border">Price</th>
-                    <th class="border">Date Available</th>
-                    <th class="border">Year Built</th>
+                    <th class="py-2 px-3 whitespace-nowrap "><span class="align-top">Area Size (m2)</span> <button onclick="orderTable('areaSize')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                          </svg> 
+                    </button></th>
+                    
+                    <th class="py-2 px-3 whitespace-nowrap "> <span class="align-top">Price ($)</span> <button onclick="orderTable('rentPrice')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                          </svg> 
+                    </button></th>
+
+                    <th class="py-2 px-3 whitespace-nowrap ">Date Available</th>
+                    <th class="py-2 px-3 whitespace-nowrap">Year Built</th>
+                    <th class="py-2 px-3 whitespace-nowrap"> Favorites</th>
+
                 </tr>
             </thead>
             <tbody>
             </tbody>
         </table>
     </section>
-
-
-
 
     <!-- Footer -->
     <footer class="w-full h-auto mt-auto mx-auto mb-12 bg-bg_color_secondary max-w-[1440px] flex flex-col py-1 items-center gap-3 sm:flex-row sm:justify-around sm:mb-0 sm:pb-2">

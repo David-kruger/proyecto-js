@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.acordion-info {
+    @apply overflow-hidden duration-300 ease-linear;
+}
+
+.acordion.close .acordion-info {
+    @apply max-h-0 opacity-0;
+}
+
+.acordion.open .acordion-info {
+    @apply max-h-full opacity-100;
+}
