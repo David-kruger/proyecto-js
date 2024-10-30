@@ -1,16 +1,7 @@
-// clase creadora de Usuarios
-class User{
-    constructor (firstName, lastName,birthDate,email,password,confirmPassword) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.email = email;
-        this.password = password;
-        this.confirmPassword = confirmPassword;
-        
-    }
-}
+// importar la clse User
+import {User} from "./classes/classes.js";
 
+// Funcion para ingresar los datos de formulario
 const submitForm = (event) => {
     // prevenir que la pagina se recargue cuando se de submit
     event.preventDefault();
@@ -42,3 +33,6 @@ const submitForm = (event) => {
     console.log('users:',users);
     // console.log(newUser);    
 }
+
+// Addeventlistener para el formulario, necesario si se trabaja con export e import y el script type=module
+document.getElementById('form_register').addEventListener('submit', submitForm);

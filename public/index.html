@@ -38,7 +38,7 @@
             <div class="font-Montserrat font-bold text-primary_text text-xl">
                 Log In to your Account
             </div>
-            <form id="form_login" onsubmit="loginForm(event)" class="w-11/12 flex flex-col gap-4 items-center">
+            <form id="form_login" class="w-11/12 flex flex-col gap-4 items-center">
                 <label><i class="fa-solid fa-user"></i><input type="email" name="email" placeholder="email@example.com" required class="placeholder:text-primary_text ml-2 focus:outline-none focus:ring-0 bg-transparent border-t-0 border-r-0 border-l-0 focus:border-[#E7E7E7]/60 focus:opacity-65 rounded-b-2xl shadow-sm focus:shadow-2xl text-secondary_text_white focus:font-semibold"></label>
 
                 <label ><i class="fa-solid fa-unlock"></i><input type="password" name="password" placeholder="Password" required class="placeholder:text-primary_text ml-2 focus:outline-none focus:ring-0 bg-transparent border-t-0 border-r-0 border-l-0 focus:border-[#E7E7E7]/60 focus:opacity-65 rounded-b-2xl shadow-sm focus:shadow-2xl text-secondary_text_white focus:font-semibold"></label>
@@ -53,6 +53,6 @@
 
     </div>
 
-    <script src="./js/login.js"></script>
+    <script type="module" src="./js/login.js"></script>
 </body>
 </html>

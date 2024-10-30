@@ -1,12 +1,5 @@
-class Update {
-    constructor (firstName,lastName,birthDate,password,confirmPassword) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.password = password;
-        this.confirmPassword = confirmPassword;
-    }
-}
+// Import la clase Update
+import {Update} from "./classes/classes.js";
 
 const updateProfile = (event) => {
     // prevenir que la pagina se recargue cuando se de submit
@@ -49,6 +42,7 @@ const updateProfile = (event) => {
     console.log('currentuser updated',currentUser);
     console.log('users updated',users)
 
-
-
 }
+
+// Addeventlistener para el formulario, necesario si se trabaja con export e import y el script type=module
+document.getElementById('profile_form').addEventListener('submit', updateProfile);

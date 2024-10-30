@@ -1,16 +1,5 @@
-class Flat {
-    constructor (id,city,streetName,streetNumber,areaSize,ac,yearBuilt,rentPrice,dateAvailable) {
-        this.id = id;
-        this.city = city;
-        this.streetName = streetName;
-        this.streetNumber = streetNumber;
-        this.areaSize = parseFloat(areaSize);
-        this.ac = ac;
-        this.yearBuilt = yearBuilt;
-        this.rentPrice = parseFloat(rentPrice);
-        this.dateAvailable = dateAvailable;
-    }
-}
+// Importar clases de Flat
+import {Flat} from "./classes/classes.js";
 
 const newFlatForm = (event) =>{
     // prevenir que la pagina se recargue cuando se de submit
@@ -49,3 +38,6 @@ const newFlatForm = (event) =>{
     }
     console.log('flats:' , flats);
 }
+
+// Addeventlistener para el formulario, necesario si se trabaja con export e import y el script type=module
+document.getElementById('form_newflat').addEventListener('submit', newFlatForm);

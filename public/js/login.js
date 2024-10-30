@@ -1,9 +1,5 @@
-class CurrentUser {
-    constructor(email,password){
-        this.email = email;
-        this.password = password;
-    }
-}
+// Import la clase currentUser
+import {CurrentUser} from "./classes/classes.js";
 
 const loginForm = (event) => {
     // prevenir que la pagina se recargue cuando se de submit
@@ -35,5 +31,7 @@ const loginForm = (event) => {
         }
         
     }
-
 }   
+
+// Addeventlistener para el formulario, necesario si se trabaja con export e import y el script type=module
+document.getElementById('form_login').addEventListener('submit', loginForm);
