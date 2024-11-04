@@ -839,6 +839,10 @@ select {
   margin-inline-start: 0.75rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -1094,6 +1098,14 @@ select {
   white-space: nowrap;
 }
 
+.whitespace-pre {
+  white-space: pre;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
 .rounded-2xl {
   border-radius: 1rem;
 }
@@ -1118,6 +1130,10 @@ select {
 
 .border {
   border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
 }
 
 .border-4 {
@@ -1145,6 +1161,10 @@ select {
   border-top-width: 0px;
 }
 
+.border-solid {
+  border-style: solid;
+}
+
 .border-\[\#AEAEAE\] {
   --tw-border-opacity: 1;
   border-color: rgb(174 174 174 / var(--tw-border-opacity));
@@ -1153,6 +1173,11 @@ select {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-red-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(185 28 28 / var(--tw-border-opacity));
 }
 
 .border-white\/60 {

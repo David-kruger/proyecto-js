@@ -19,6 +19,8 @@
     <script src="https://kit.fontawesome.com/ee172cc989.js" crossorigin="anonymous"></script>
     <!-- Estilos tailwind -->
     <link rel="stylesheet" href="./style/tailwind.css">
+    <!-- sweetAlert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Register</title>
 </head>
 <body>
@@ -39,41 +41,43 @@
                 <div class="font-Montserrat font-bold text-primary_text text-xl">
                     Create your Account
                 </div>
-                <form id="form_register"  class="w-11/12 flex flex-col gap-4 items-center">
-                    <div class="flex flex-col">
+                <form id="form_register" class="w-11/12 flex flex-col gap-4 items-center ">
+                    <div id="name_group" class="flex flex-col">
                         <span class="font-Opensans text-xs ml-6 text-secondary_text">First Name</span>
                         <label><i class="fa-solid fa-id-card" style="color: #1f1f1f;"></i><input type="text" name="first_name" placeholder="First Name" required minlength="2" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
-                        <p class="ml-6 text-text_danger font-Opensans hidden"></p>
+                        <p class="ml-6 mt-1 text-xs text-text_danger font-Opensans hidden">Invalid Name</p>
                     </div>
                     
-                    <div class="flex flex-col">
+                    <div id="lastName_group" class="flex flex-col" >
                         <span class="font-Opensans text-xs ml-6 text-secondary_text">Last Name</span>
                         <label><i class="fa-solid fa-id-card" style="color: #1f1f1f;"></i><input type="text" name="last_name" placeholder="Last Name" required minlength="2" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
-                        <p class="ml-6 text-text_danger font-Opensans hidden"></p>
+                        <p class="ml-6 mt-1 text-xs text-text_danger font-Opensans hidden">Invalid Last Name</p>
                     </div>
                     
-                    <div class="flex flex-col">
+                    <div id="birthDate_group" class="flex flex-col">
                         <span class="font-Opensans text-xs ml-6 text-secondary_text">Birth Date</span>
-                        <label><i class="fa-solid fa-calendar-days" style="color: #1f1f1f;"></i><input type="date" name="birth_date" placeholder="Birth Date" required  min="2004-01-01" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
-                        <p class="ml-6 text-text_danger font-Opensans hidden"></p>
+                        <label><i class="fa-solid fa-calendar-days" style="color: #1f1f1f;"></i><input type="date" name="birth_date" placeholder="Birth Date" required  class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
+                        <p class="ml-6 mt-1 text-xs text-text_danger font-Opensans hidden">You must be at least 18 years old.</p>
                     </div>
                     
-                    <div class="flex flex-col">
+                    <div id="email_group" class="flex flex-col">
                         <span class="font-Opensans text-xs ml-6 text-secondary_text">Email</span>
                         <label><i class="fa-solid fa-envelope" style="color: #1f1f1f;"></i><input type="email" name="email" placeholder="Email" required class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
-                        <p class="ml-6 text-text_danger font-Opensans hidden"></p>
+                        <p class="ml-6 mt-1 text-xs text-text_danger font-Opensans hidden">Invalid email Adress</p>
                     </div>
                     
-                    <div class="flex flex-col">
-                        <span class="font-Opensans text-xs ml-6 text-secondary_text">Password</span>
+                    <div id="password_group" class="flex flex-col">
+                        <span class=" font-Opensans text-xs ml-6 text-secondary_text">Password</span>
                         <label ><i class="fa-solid fa-unlock" style="color: #1f1f1f;"></i><input type="password" name="password" placeholder="Password" required minlength="6"  class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
-                        <p class="ml-6 text-text_danger font-Opensans hidden"></p>
+                        <p class="ml-6 mt-1 text-xs whitespace-pre text-balance text-text_danger font-Opensans hidden">The password must contain at least 
+6 characters (letters, numbers 
+and a special character).</p>
                     </div>
                     
-                    <div class="flex flex-col">
+                    <div id="confirm-pass_group" class="flex flex-col">
                         <span class="font-Opensans text-xs ml-6 text-secondary_text">Confirm Password</span>
                         <label ><i class="fa-solid fa-unlock" style="color: #1f1f1f;"></i><input type="password" name="confirm_password" placeholder="Confirm your Password" required minlength="6" class="ml-2 rounded-lg bg-bg_color_primary text-primary_text placeholder:text-secondary_text focus:border-[#47AFFF] focus:drop-shadow-[0_0_8px_rgba(71,175,255,0.25)] focus:opacity-75"></label>
-                        <p><p class="ml-6 text-text_danger font-Opensans hidden"></p></p>
+                        <p class="ml-6 mt-1 text-xs text-text_danger font-Opensans hidden">Passwords do not match</p>
                     </div>
                     
                     <button type="submit" class="w-11/12 max-w-[430px] bg-gradient-to-r from-[#f0877c] to-[#ff609a] rounded-2xl font-Montserrat font-bold text-xl text-primary_text_white drop-shadow-xl focus:opacity-75">Sign Up</button>
