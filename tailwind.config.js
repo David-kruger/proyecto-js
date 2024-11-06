@@ -16,7 +16,7 @@ module.exports = {
         'success_color': '#46D678',
         'info_color': '#47AFFF',
         'warning_color': "#FFB356",
-        'danger_color': '#FF609A',
+        'danger_color': '#f5005a',
       }),
       textColor: ({theme}) => ({
         ...theme('colors'),
@@ -26,7 +26,7 @@ module.exports = {
         'primary_text_white': '#F8F8F8',
         'secondary_text_white': '#E7E7E7',
         'terciary_text_white': '#C8C8C8',
-        'text_danger': '#FF609A',
+        'text_danger': '#f5005a',
       }),
       fontFamily: {
         Montserrat:['"Montserrat"'],

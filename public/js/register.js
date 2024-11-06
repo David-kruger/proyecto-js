@@ -74,7 +74,7 @@ const validateUser = (event) =>{
 const validateCamp = (expression,input,camp) => {
     if (expression.test(input.value)) {
         document.querySelector(`#${camp}_group p`).classList.add('hidden');
-        document.querySelector(`#${camp}_group input`).classList.remove('border-solid', 'border-2', 'border-red-700')
+        document.querySelector(`#${camp}_group input`).classList.remove('border-solid', 'border-2', 'border-[#f5005a]')
         inputCamps[camp]= true;
     }else {
         document.querySelector(`#${camp}_group p`).classList.remove('hidden');
@@ -135,7 +135,7 @@ const submitForm = (event) => {
         users.push(newUser);
         localStorage.setItem('users',JSON.stringify(users));
     }
-    
+
     form.reset();
     Swal.fire({
         position: "top-end",
