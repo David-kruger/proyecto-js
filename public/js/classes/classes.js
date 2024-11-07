@@ -21,8 +21,9 @@ class CurrentUser extends User {
 // Clase Update hereda de User
 class Update extends User {
      constructor(firstName, lastName, birthDate, password, confirmPassword) {
-     super(firstName, lastName, birthDate, null, password, confirmPassword);
-     }
+     super(firstName, lastName, birthDate,null, password, confirmPassword);
+     delete this.email;
+    }
 }
 
 // Clase para pisos

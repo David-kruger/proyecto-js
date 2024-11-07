@@ -819,6 +819,10 @@ select {
   margin-bottom: 1rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -1180,11 +1184,6 @@ select {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.border-red-700 {
-  --tw-border-opacity: 1;
-  border-color: rgb(185 28 28 / var(--tw-border-opacity));
-}
-
 .border-white\/60 {
   border-color: rgb(255 255 255 / 0.6);
 }
@@ -1295,6 +1294,11 @@ select {
 
 .fill-\[\#FFFFFF\] {
   fill: #FFFFFF;
+}
+
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .object-cover {

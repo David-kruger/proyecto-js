@@ -15,6 +15,7 @@ const loginForm = (event) => {
         form.elements['password'].value,
     );
 
+
     // obtener los usuarios guardados en local storage users type array
     const users = JSON.parse(localStorage.getItem('users'));
 

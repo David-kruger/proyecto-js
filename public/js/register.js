@@ -78,7 +78,7 @@ const validateCamp = (expression,input,camp) => {
         inputCamps[camp]= true;
     }else {
         document.querySelector(`#${camp}_group p`).classList.remove('hidden');
-        document.querySelector(`#${camp}_group input`).classList.add('border-solid', 'border-2', 'border-red-700')
+        document.querySelector(`#${camp}_group input`).classList.add('border-solid', 'border-2', 'border-[#f5005a]')
         inputCamps[camp]= false;
     }
     // console.log('inputCamps',inputCamps)
@@ -123,9 +123,8 @@ const submitForm = (event) => {
         );
     }else {
         return;
-    } 
-
-    console.log('dssdds')
+    }
+    console.log(newUser) 
 
     // // sino hay ningun usuario agrega el local storage el primer usuario si ya contiene usarios lo agrega al final del array de users
     if (users === null) {
@@ -138,7 +137,7 @@ const submitForm = (event) => {
 
     form.reset();
     Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Account Created",
         showConfirmButton: false,
