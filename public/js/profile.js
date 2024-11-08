@@ -81,10 +81,11 @@ const updateProfile = (event) => {
         showConfirmButton: false,
         timer: 1500
       });
-    form.reset();
-    placeholderNames();
-    cardName();
     }
+
+    setTimeout(()=>{
+        window.location.href = 'home.html';
+    },2500);
 }
 
 const validateFirstName = (inputValue) => {
