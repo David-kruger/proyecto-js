@@ -13,11 +13,12 @@ const newFlatForm = (event) =>{
     //crear una varialbe que guarde la informacion del formulario 
     const form = event.target;
 
-    const city = form.elements['city'].value;
+    const city = form.elements['city'].value; 
     const streetName = form.elements['street_name'].value;
     const streetNumber = form.elements['street_number'].value;
     const areaSize = form.elements['area_size'].value;
     const hasAc = form.elements['has_ac'].checked;
+    const acYesno = hasAc ? 'yes' : 'no';
     const yearBuilt = form.elements['year_built'].value;
     const rentPrice = form.elements['rent_price'].value;
     const dateAvailable = form.elements['date_available'].value;
@@ -49,14 +50,14 @@ const newFlatForm = (event) =>{
     // crear un objeto de la clase newFlat
     const newFlat = new Flat (
         date.getTime(),
-        form.elements['city'].value,
-        form.elements['street_name'].value,
-        form.elements['street_number'].value,
-        form.elements['area_size'].value,
-        form.elements['has_ac'].checked,
-        form.elements['year_built'].value,
-        form.elements['rent_price'].value,
-        form.elements['date_available'].value,
+        city,
+        streetName,
+        streetNumber,
+        areaSize,
+        acYesno,
+        yearBuilt,
+        rentPrice,
+        dateAvailable,
     );
 
     // obtener los pisos guardados en local storage flats type array

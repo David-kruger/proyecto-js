@@ -797,12 +797,20 @@ select {
   left: 50%;
 }
 
+.right-2 {
+  right: 0.5rem;
+}
+
 .top-1 {
   top: 0.25rem;
 }
 
 .top-12 {
   top: 3rem;
+}
+
+.top-2 {
+  top: 0.5rem;
 }
 
 .m-auto {
@@ -889,6 +897,10 @@ select {
 
 .hidden {
   display: none;
+}
+
+.aspect-\[4\/3\] {
+  aspect-ratio: 4/3;
 }
 
 .size-6 {
@@ -993,6 +1005,10 @@ select {
   min-width: 310px;
 }
 
+.max-w-80 {
+  max-width: 20rem;
+}
+
 .max-w-\[1440px\] {
   max-width: 1440px;
 }
@@ -1050,6 +1066,10 @@ select {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .justify-around {
   justify-content: space-around;
 }
@@ -1062,6 +1082,10 @@ select {
   justify-items: center;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
 .gap-2 {
   gap: 0.5rem;
 }
@@ -1072,6 +1096,15 @@ select {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-x-6 {
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+
+.gap-y-10 {
+  row-gap: 2.5rem;
 }
 
 .self-end {
@@ -1120,6 +1153,10 @@ select {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .rounded-b-2xl {
@@ -1172,6 +1209,11 @@ select {
 .border-\[\#AEAEAE\] {
   --tw-border-opacity: 1;
   border-color: rgb(174 174 174 / var(--tw-border-opacity));
+}
+
+.border-\[\#C8C8C8\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(200 200 200 / var(--tw-border-opacity));
 }
 
 .border-\[\#f5005a\] {
@@ -1628,6 +1670,11 @@ select {
   overflow: auto;
 }
 
+.hover\:bg-bg_color_secondary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 231 231 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-bg_color_terciary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(200 200 200 / var(--tw-bg-opacity));
@@ -1838,6 +1885,10 @@ select {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
@@ -1886,6 +1937,12 @@ select {
   .md\:drop-shadow-\[0_0_8px_rgba\(0\2c 0\2c 0\2c 0\.25\)\] {
     --tw-drop-shadow: drop-shadow(0 0 8px rgba(0,0,0,0.25));
     filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 

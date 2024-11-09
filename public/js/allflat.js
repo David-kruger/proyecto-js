@@ -1,13 +1,35 @@
+let validacionGridTable = true;
+// variable para poder acceder a la lista de pisos en todas las funciones
+let current_table = [];
+
 // Filtro acordeon
-const acordeon = document.querySelector('.acordion div');
+const acordeon = document.querySelector('#fliters_acordion');
 acordeon.addEventListener('click', ()=> {
     const item = document.querySelector('.acordion');
     item.classList.toggle('open');
     item.classList.toggle('close');
 })
 
-// variable para poder acceder a la lista de pisos en todas las funciones
-let current_table = [];
+// toggle grid or table
+const toggle = document.querySelector('#table_grid-toggle');
+toggle.addEventListener('click', () => {
+        const gridTemplate = document.querySelector('#grid_template');
+    const tableTemplate = document.querySelector('#table_template');
+
+    if (validacionGridTable) {
+        validacionGridTable = false;
+        gridTable();
+        gridTemplate.classList.toggle('hidden');
+        tableTemplate.classList.toggle('hidden');
+        // console.log(validacionGridTable) 
+    } else {
+        validacionGridTable = true;
+        fillTable();
+        tableTemplate.classList.toggle('hidden');
+        gridTemplate.classList.toggle('hidden');
+        // console.log(validacionGridTable)
+    } 
+})
 
 // funcion para llenar la tabla
 const fillTable = (flats = null) => {
@@ -121,7 +143,13 @@ const filterTable = (event) => {
             return true;
         });
 
-        fillTable(filteredFlats);
+        if (validacionGridTable) {
+            fillTable(filteredFlats);
+            // console.log('table')
+        } else {
+            gridTable(filteredFlats);
+            // console.log('grid')  
+        }  
     }
 
 }
@@ -140,7 +168,15 @@ const orderTable = (column) => {
           }
           return 0; 
         });
-        fillTable(tableSorted);
+        
+        if (validacionGridTable) {
+            fillTable(tableSorted);
+            // console.log('table')
+        } else {
+            gridTable(tableSorted);
+            // console.log('grid')  
+        }  
+    
     }
 }
 
@@ -185,6 +221,7 @@ const AddFavorite = (event,id) => {
     }
 }
 
+// Funcion para verificar los favoritos en cada user
 const checkFlatFavorite = (id) => {
     const usser_logged = JSON.parse(localStorage.getItem('currentUser'));
     const email = usser_logged.email;
@@ -201,6 +238,78 @@ const checkFlatFavorite = (id) => {
 
     }
     return false;
+}
+
+const coverImageRandom = async () => {
+    try {
+        const acces_key = 'pxk0mLv70mVVaKrCjw-AlWvM8JZHYG53wxwnOSPZ2r8';
+        const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${acces_key}&orientation=landscape&count=1&query=city`);
+        const data = await response.json();
+        return data[0].urls.regular; // Retorna la URL de la imagen
+    } catch (error) {
+        console.error('Error mostrado:', error);
+        return './img/profile.jpg'; // URL de una imagen de reserva en caso de error
+    }
+};
+
+const gridTable = async (flats = null) => {
+    
+    const gridBody = document.querySelector('#grid_components');
+    
+    // Vaciar la tabla para que no se sobreescriban los pisos cuando se filtre
+    gridBody.innerHTML = '';
+
+    // obtener la lista de elementos de flats almacenados en local storage
+    // Si flats es null trae todos los pisos de local storage, si no es null recibio una lista de pisos filtrados
+    if (flats == null) {
+        flats = JSON.parse(localStorage.getItem('flats'));
+    }
+
+    current_table = flats;
+
+    if (flats != null && Array.isArray(flats)) {
+        for (const flat of flats) {
+            // Llama a coverImageRandom y espera la URL de la imagen
+            const imageUrl = await coverImageRandom();
+
+            const divCard = document.createElement('div');
+            divCard.classList.add('flex', 'flex-col', 'max-w-80', 'relative');
+
+            divCard.innerHTML = `
+                <picture class="aspect-[4/3]">
+                    <img src="${imageUrl}" class="rounded-xl object-cover">
+                </picture>
+                <div class="flex gap-1">
+                    <h2 class="font-Lora text-base text-primary_text">${flat.city},</h2>
+                    <h2 class="font-Lora text-base text-primary_text">${flat.streetName}</h2>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-Opensans text-secondary_text text-sm">${flat.areaSize} m2</h3>
+                    <h3 class="font-Opensans text-secondary_text text-sm">Available ${flat.dateAvailable}</h3>
+                </div>
+                <div class="flex justify-between">
+                    <span>${flat.ac}</span>
+                    <span class="font-Lora text-base text-primary_text">$${flat.rentPrice}</span>
+                </div>`;
+
+            const divAbsolute = document.createElement('div');
+            divAbsolute.className = 'absolute top-2 right-2';
+
+            const button = document.createElement('button');
+            button.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1" stroke="white" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                </svg>`;
+
+            button.onclick = (event) => AddFavorite(event, flat.id);
+            button.classList.add(checkFlatFavorite(flat.id) ? 'fill-[#EFB810]' : 'fill-[#FFFFFF]');
+
+            divAbsolute.appendChild(button);
+            divCard.appendChild(divAbsolute);
+
+            gridBody.appendChild(divCard);
+        }
+    }
 }
 
 // Ejecuta las funciones al momento que cargue la pagina
