@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
     <!-- Jquery -->
     <script src="./js/jquery/jquery-3.7.1.min.js"></script>
+    <!-- sweetAlert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Favicon -->
     <link rel="shortcut icon" href="./svg/Favicon.svg" type="image/x-icon">
     <!-- Iconos -->
@@ -75,9 +77,9 @@
     </nav>
 
     <!-- Tabla de datos -->
-    <section class="mx-auto w-11/12 my-4 overflow-x-auto">
-        <table id="flats_table" class="w-full table-auto border-collapse ">
-            <thead>
+    <section id="table_template" class="mx-auto w-11/12 my-4 overflow-x-auto shadow ">
+        <table id="flats_table" class="w-full table-auto border-collapse border border-gray-300 rounded-2xl overflow-hidden">
+            <thead class="bg-bg_color_secondary rounded-t-xl">
                 <tr class="border-y border-gray-300">
                     <th class="py-2 px-3 whitespace-nowrap"><span class="align-top">City</span> <button onclick="orderTable('city')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

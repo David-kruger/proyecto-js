@@ -55,9 +55,9 @@ const fillTable = (flats = null) => {
             tr.innerHTML = 
             '<td class="py-2 px-3 text-left">' + flat.city +'</td>' +
             '<td class="py-2 px-3 text-left ">' + flat.streetName + '</td>' +
-            '<td class="py-2 px-3 text-right">' + flat.streetNumber + '</td>' +
-            '<td class="py-2 px-3 text-left">' + flat.ac + '</td>' +
-            '<td class="py-2 px-3 text-right">' + flat.areaSize + '</td>' +
+            '<td class="py-2 px-3 text-center">' + flat.streetNumber + '</td>' +
+            '<td class="py-2 px-3 text-center">' + flat.ac + '</td>' +
+            '<td class="py-2 px-3 text-center">' + flat.areaSize + '</td>' +
             '<td class="py-2 px-3 text-right">' + flat.rentPrice + '</td>' +
             '<td class="py-2 px-3 text-center">' + flat.dateAvailable + '</td>'+ 
             '<td class="py-2 px-3 text-center whitespace-nowrap">' + flat.yearBuilt + '</td>'; 
@@ -75,9 +75,13 @@ const fillTable = (flats = null) => {
             tdAdd.appendChild(button);
             tr.appendChild(tdAdd)
             
-            tr.className = "border-y border-gray-300 py-2";
+            tr.className = "border-y border-gray-300 rounded-2xl py-2";
             tbody.appendChild(tr)
         });
+    } else {
+        const tr = document.createElement('tr');
+        tr.innerHTML =`<td class="text-center py-2" colspan="9"> No hay Pisos </td>`;
+        tbody.appendChild(tr);
     }
 }
 
@@ -94,6 +98,7 @@ const filterTable = (event) => {
     const maxPrice = form.elements['max-price'].value; 
     let minArea = form.elements['min-area'].value; 
     const maxArea = form.elements['max-area'].value; 
+
     
     // Obtener el array de pisos guardados en localstorage
     const flats = JSON.parse(localStorage.getItem('flats'));
@@ -104,7 +109,7 @@ const filterTable = (event) => {
             
             // Filtro para ciudad si la ciudad no coincide con el input retorna un false
             if (city) {
-                if (city !== flat.city) {
+                if (city.toLowerCase() !== flat.city.toLowerCase()) {
                     return false;
                 }
             }
@@ -160,10 +165,10 @@ const orderTable = (column) => {
     if (current_table && Array.isArray(current_table)) {
         
         const tableSorted = current_table.sort((a,b)=>{
-          if (a[column] > b[column]) {
+          if (a[column].toLowerCase() > b[column].toLowerCase()) {
             return 1;
           } 
-          if (a[column] < b[column]) {
+          if (a[column].toLowerCase() < b[column].toLowerCase()) {
             return -1;
           }
           return 0; 
@@ -243,15 +248,17 @@ const checkFlatFavorite = (id) => {
 const coverImageRandom = async () => {
     try {
         const acces_key = 'pxk0mLv70mVVaKrCjw-AlWvM8JZHYG53wxwnOSPZ2r8';
-        const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${acces_key}&orientation=landscape&count=1&query=city`);
+        const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${acces_key}&orientation=squarish&count=1&query=apartment,home`);
         const data = await response.json();
         return data[0].urls.regular; // Retorna la URL de la imagen
+
     } catch (error) {
         console.error('Error mostrado:', error);
         return './img/profile.jpg'; // URL de una imagen de reserva en caso de error
     }
 };
 
+// funcion para llenar el grid
 const gridTable = async (flats = null) => {
     
     const gridBody = document.querySelector('#grid_components');
@@ -270,14 +277,17 @@ const gridTable = async (flats = null) => {
     if (flats != null && Array.isArray(flats)) {
         for (const flat of flats) {
             // Llama a coverImageRandom y espera la URL de la imagen
-            const imageUrl = await coverImageRandom();
+            // const imageUrl = await coverImageRandom();
 
             const divCard = document.createElement('div');
             divCard.classList.add('flex', 'flex-col', 'max-w-80', 'relative');
 
+
+            // <img src="${imageUrl}" class="rounded-xl object-cover">
+
             divCard.innerHTML = `
                 <picture class="aspect-[4/3]">
-                    <img src="${imageUrl}" class="rounded-xl object-cover">
+                    <img src="" class="rounded-xl object-cover">
                 </picture>
                 <div class="flex gap-1">
                     <h2 class="font-Lora text-base text-primary_text">${flat.city},</h2>
@@ -288,7 +298,7 @@ const gridTable = async (flats = null) => {
                     <h3 class="font-Opensans text-secondary_text text-sm">Available ${flat.dateAvailable}</h3>
                 </div>
                 <div class="flex justify-between">
-                    <span>${flat.ac}</span>
+                    <span>${flat.ac === 'yes' ? '<i class="fa-solid fa-temperature-low fa-lg" style="color: #F28B82;"></i>' : ''}</span>
                     <span class="font-Lora text-base text-primary_text">$${flat.rentPrice}</span>
                 </div>`;
 
@@ -309,6 +319,11 @@ const gridTable = async (flats = null) => {
 
             gridBody.appendChild(divCard);
         }
+    } else {
+        const div = document.createElement('div');
+        div.className= 'mx-auto'
+        div.textContent= 'No hay pisos'
+        gridBody.appendChild(div);
     }
 }
 

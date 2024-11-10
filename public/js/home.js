@@ -9,8 +9,8 @@ const fillTable = () =>
 
     tbody.innerHTML = '';
 
-    if (favoriteFlats && Array.isArray(favoriteFlats)) {
-        
+    if(favoriteFlats!==null &&  Array.isArray(favoriteFlats) && favoriteFlats.length > 0) {
+
         const filtered = favoriteFlats.filter((item)=> {
             return item.emailUser === userLogged.email
         });
@@ -28,13 +28,13 @@ const fillTable = () =>
                 tr.innerHTML = 
                 '<td class="py-2 px-3 text-left">' + flat.city +'</td>' +
                 '<td class="py-2 px-3 text-left ">' + flat.streetName + '</td>' +
-                '<td class="py-2 px-3 text-right">' + flat.streetNumber + '</td>' +
-                '<td class="py-2 px-3 text-left">' + flat.ac + '</td>' +
-                '<td class="py-2 px-3 text-right">' + flat.areaSize + '</td>' +
+                '<td class="py-2 px-3 text-center">' + flat.streetNumber + '</td>' +
+                '<td class="py-2 px-3 text-center">' + flat.ac + '</td>' +
+                '<td class="py-2 px-3 text-center">' + flat.areaSize + '</td>' +
                 '<td class="py-2 px-3 text-right">' + flat.rentPrice + '</td>' +
                 '<td class="py-2 px-3 text-center">' + flat.dateAvailable + '</td>'+ 
                 '<td class="py-2 px-3 text-center whitespace-nowrap">' + flat.yearBuilt + '</td>'; 
-                
+                                
                 const tdAdd = document.createElement('td');
                 tdAdd.className = "py-2 px-3 text-center";
 
@@ -49,12 +49,17 @@ const fillTable = () =>
                 tdAdd.appendChild(button);
                 tr.appendChild(tdAdd)
                 
-                tr.className = "border-y border-gray-300 py-2";
+                tr.className = "border-y border-gray-300 rounded-2xl py-2";
                 tbody.appendChild(tr)
             });                   
         }
 
+    }else {
+        const tr = document.createElement('tr');
+        tr.innerHTML =`<td class="text-center py-2" colspan="9"> No hay Pisos </td>`;
+        tbody.appendChild(tr);
     }
+
 }
 
 // Funcion para añadir favoritos
@@ -62,24 +67,43 @@ const RemoveFavorite = (event,id) => {
     // llamar al usuario loggeado actualmente
     const usserLogged = JSON.parse(localStorage.getItem('currentUser'));
     
-    if (!usserLogged) {
-        alert('No estas registrado');
-        return
-    }
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to remove this flat",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, remove it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+        
+            if (!usserLogged) {
+                alert('No estas registrado');
+                return
+            }
 
-    const favoriteFlats = JSON.parse(localStorage.getItem('favorite_Flats'))
+            const favoriteFlats = JSON.parse(localStorage.getItem('favorite_Flats'))
 
-    const exist = favoriteFlats.findIndex((item)=>{
-        return item.idFlat === id;
-    });
+            const exist = favoriteFlats.findIndex((item)=>{
+                return item.idFlat === id;
+            });
 
-    if (exist === -1) {
-        alert('Piso no encontrado')
-    } else {
-        favoriteFlats.splice(exist,1);
-        localStorage.setItem('favorite_Flats',JSON.stringify(favoriteFlats));
-        fillTable();
-    }
+            if (exist === -1) {
+                alert('Piso no encontrado')
+            } else {
+                favoriteFlats.splice(exist,1);
+                localStorage.setItem('favorite_Flats',JSON.stringify(favoriteFlats));
+                fillTable();
+            }
+
+          Swal.fire({
+            title: "Removed!",
+            text: "Your flat has been removed.",
+            icon: "success"
+          });
+        }
+      });
 
 }
 
