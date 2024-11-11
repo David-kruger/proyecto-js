@@ -1,91 +1,11 @@
 // importar la clse User
 import {User} from "./classes/classes.js";
-
-// const formulario = document.getElementById('form_register');
-const inputs = document.querySelectorAll('#form_register input');
-
-// Objeto con las expresiones regulares para realizar las validaciones 
-const expressions = {
-	name: /^[a-zA-ZÀ-ÿ]{2,}(?:\s[a-zA-ZÀ-ÿ]+)*$/, // Letras y espacios, pueden llevar acentos.
-	password: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\W]{6,}$/, 
-	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-}
-
-// objeto con las banderas true o false de los inputs, usado para la creacion del objetos User
-const inputCamps = {
-    name: false,
-    lastName: false,
-    birthDate: false,
-    email: false,
-    password: false,
-    confirmPassword: false,
-}
-
-// funcion para validar los inputs del formulario
-const validateUser = (event) =>{
-    console.log(event.target.name);
-    switch (event.target.name){
-        case 'first_name':
-            validateCamp (expressions.name, event.target, 'name');
-        break;
-        
-        case 'last_name':
-            validateCamp (expressions.name, event.target, 'lastName');
-        break;
-
-        case 'birth_date':
-            const birthdate = new Date(event.target.value);
-            const today = new Date();
-            const majorityAge = new Date (today.getFullYear()-18,today.getMonth(),today.getDay());
-
-            if (birthdate > majorityAge) {
-                document.querySelector('#birthDate_group p').classList.remove('hidden');
-                inputCamps['birthDate']= false;
-            } else {
-                document.querySelector('#birthDate_group p').classList.add('hidden');
-                inputCamps['birthDate']= true;
-            }
-            
-        break;
-
-        case 'email':
-            validateCamp (expressions.email, event.target, 'email');
-        break;
-
-        case 'password':
-            validateCamp (expressions.password, event.target, 'password');
-        break;
-
-        case 'confirm_password':
-            
-            if (event.target.value === document.querySelector('#password_group input').value) {
-                document.querySelector('#confirm-pass_group p').classList.add('hidden');
-                inputCamps['confirmPassword']= true;
-            }else {
-                document.querySelector('#confirm-pass_group p').classList.remove('hidden');
-                inputCamps['confirmPassword']= false;
-            }
-
-        break;
-    }
-}
-
-// Function to validate name, lastname, email and password
-const validateCamp = (expression,input,camp) => {
-    if (expression.test(input.value)) {
-        document.querySelector(`#${camp}_group p`).classList.add('hidden');
-        document.querySelector(`#${camp}_group input`).classList.remove('border-solid', 'border-2', 'border-[#f5005a]')
-        inputCamps[camp]= true;
-    }else {
-        document.querySelector(`#${camp}_group p`).classList.remove('hidden');
-        document.querySelector(`#${camp}_group input`).classList.add('border-solid', 'border-2', 'border-[#f5005a]')
-        inputCamps[camp]= false;
-    }
-    // console.log('inputCamps',inputCamps)
-}
+import { validateUser, inputCamps } from './register/validateUser.js';
+import {deleteCurrentUser} from './general/logOutRegisterLogin.js'
 
 // Funcion para ingresar los datos de formulario
 const submitForm = (event) => {
+    console.log(inputCamps);
     // prevenir que la pagina se recargue cuando se de submit
     event.preventDefault();
     
@@ -94,7 +14,6 @@ const submitForm = (event) => {
     
     // obtener los usuarios guardados en local storage users type array
     const users = JSON.parse(localStorage.getItem('users'));
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     
     if (users != null) {
         const existEmail = users.findIndex((item)=> {
@@ -128,7 +47,6 @@ const submitForm = (event) => {
     }else {
         return;
     }
-    console.log(newUser) 
 
     // // sino hay ningun usuario agrega el local storage el primer usuario si ya contiene usarios lo agrega al final del array de users
     if (users === null) {
@@ -153,23 +71,18 @@ const submitForm = (event) => {
       });
 
     setTimeout(()=>{
-        
         window.location.href = 'home.html';
     },2500);
    
-}
-
-const deleteCurrentUser = () => {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser!= null) {
-        localStorage.removeItem('currentUser');
-    }
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
 
     // Eliminar Usuario Loggeado
     deleteCurrentUser();
+
+    // Obtener todos los inputs del formulario
+    const inputs = document.querySelectorAll('#form_register input');
 
     // Addeventlistener para el formulario, necesario si se trabaja con export e import y el script type=module
     document.getElementById('form_register').addEventListener('submit', submitForm);

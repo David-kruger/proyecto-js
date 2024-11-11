@@ -1,6 +1,6 @@
 // Import la clase currentUser
 import {CurrentUser} from "./classes/classes.js";
-
+import {deleteCurrentUser} from './general/logOutRegisterLogin.js'
 
 const loginForm = (event) => {
     // prevenir que la pagina se recargue cuando se de submit
@@ -14,7 +14,6 @@ const loginForm = (event) => {
         form.elements['email'].value,
         form.elements['password'].value,
     );
-
 
     // obtener los usuarios guardados en local storage users type array
     const users = JSON.parse(localStorage.getItem('users'));
@@ -59,13 +58,6 @@ const loginForm = (event) => {
         
     }
 }  
-
-const deleteCurrentUser = () => {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser!= null) {
-        localStorage.removeItem('currentUser');
-    }
-}
 
 document.addEventListener('DOMContentLoaded',()=>{
 
