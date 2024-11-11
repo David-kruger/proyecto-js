@@ -74,6 +74,7 @@ const RemoveFavorite = (event,id) => {
         text: "Do you want to remove this flat",
         icon: "warning",
         iconColor: '#FFB356',
+        background: '#F8F8F8',
         showCancelButton: true,
         confirmButtonColor: "#47AFFF",
         cancelButtonColor: "#f5005a",
@@ -105,6 +106,7 @@ const RemoveFavorite = (event,id) => {
             text: "Your flat has been removed.",
             icon: "success",
             iconColor: '#46D678',
+            background: '#F8F8F8',
             confirmButtonColor: '#47AFFF'
           });
         }

@@ -94,6 +94,7 @@ const submitForm = (event) => {
     
     // obtener los usuarios guardados en local storage users type array
     const users = JSON.parse(localStorage.getItem('users'));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     
     if (users != null) {
         const existEmail = users.findIndex((item)=> {
@@ -105,7 +106,8 @@ const submitForm = (event) => {
                 title: "Oops...",
                 text: "this email is already registered!",
                 iconColor: '#f5005a',
-                confirmButtonColor: '#47AFFF'
+                confirmButtonColor: '#47AFFF',
+                background: '#F8F8F8',
               });
             return;
         }
@@ -132,9 +134,11 @@ const submitForm = (event) => {
     if (users === null) {
         const arrayUser = [newUser];
         localStorage.setItem('users', JSON.stringify(arrayUser));
+        localStorage.setItem('currentUser',JSON.stringify(newUser));
     } else {
         users.push(newUser);
         localStorage.setItem('users',JSON.stringify(users));
+        localStorage.setItem('currentUser',JSON.stringify(newUser));
     }
 
     form.reset();
@@ -143,6 +147,7 @@ const submitForm = (event) => {
         icon: "success",
         title: "Account Created",
         iconColor: '#46D678',
+        background: '#F8F8F8',
         showConfirmButton: false,
         timer: 1500
       });
@@ -154,7 +159,17 @@ const submitForm = (event) => {
    
 }
 
+const deleteCurrentUser = () => {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser!= null) {
+        localStorage.removeItem('currentUser');
+    }
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
+
+    // Eliminar Usuario Loggeado
+    deleteCurrentUser();
 
     // Addeventlistener para el formulario, necesario si se trabaja con export e import y el script type=module
     document.getElementById('form_register').addEventListener('submit', submitForm);

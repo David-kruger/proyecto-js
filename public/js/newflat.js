@@ -78,6 +78,7 @@ const newFlatForm = (event) =>{
         icon: "success",
         title: "Flat Created",
         iconColor: '#46D678',
+        background: '#F8F8F8',
         showConfirmButton: false,
         timer: 1500
       });

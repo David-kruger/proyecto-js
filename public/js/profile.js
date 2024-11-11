@@ -80,6 +80,7 @@ const updateProfile = (event) => {
         icon: "success",
         title: "Account Updated",
         iconColor: '#46D678',
+        background: '#F8F8F8',
         showConfirmButton: false,
         timer: 1500
       });

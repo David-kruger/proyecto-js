@@ -30,6 +30,7 @@ const loginForm = (event) => {
                 icon: "success",
                 title: "LogIn Successful",
                 iconColor: '#46D678',
+                background: '#F8F8F8',
                 showConfirmButton: false,
                 timer: 1500
               });
@@ -48,6 +49,7 @@ const loginForm = (event) => {
             title: "Oops...",
             text: "User or password Incorrect!",
             iconColor: '#f5005a',
+            background: '#F8F8F8',
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
@@ -56,9 +58,19 @@ const loginForm = (event) => {
         }
         
     }
-}   
+}  
+
+const deleteCurrentUser = () => {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser!= null) {
+        localStorage.removeItem('currentUser');
+    }
+}
 
 document.addEventListener('DOMContentLoaded',()=>{
+
+    // Eliminar Usuario Loggeado
+    deleteCurrentUser();
     
     // Addeventlistener para el formulario, necesario si se trabaja con export e import y el script type=module
     document.getElementById('form_login').addEventListener('submit', loginForm);
