@@ -1,3 +1,5 @@
+import {checkUserLogged} from './general/checkUserLogged.js'
+
 const fillTable = () => 
     {
     const favoriteFlats = JSON.parse(localStorage.getItem('favorite_Flats'));
@@ -71,9 +73,10 @@ const RemoveFavorite = (event,id) => {
         title: "Are you sure?",
         text: "Do you want to remove this flat",
         icon: "warning",
+        iconColor: '#FFB356',
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
+        confirmButtonColor: "#47AFFF",
+        cancelButtonColor: "#f5005a",
         confirmButtonText: "Yes, remove it!"
       }).then((result) => {
         if (result.isConfirmed) {
@@ -100,7 +103,9 @@ const RemoveFavorite = (event,id) => {
           Swal.fire({
             title: "Removed!",
             text: "Your flat has been removed.",
-            icon: "success"
+            icon: "success",
+            iconColor: '#46D678',
+            confirmButtonColor: '#47AFFF'
           });
         }
       });
@@ -108,9 +113,9 @@ const RemoveFavorite = (event,id) => {
 }
 
 document.addEventListener('DOMContentLoaded',() => {
-    const user_logged= JSON.parse(localStorage.getItem('currentUser'));
-    if (user_logged == null) {
-        window.location.href = 'index.html'
-    }
+
+    // verificar usuario loggeado
+    checkUserLogged();
+    // llenar la tabla con los pisos favoritos
     fillTable();
 })

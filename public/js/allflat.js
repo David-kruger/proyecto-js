@@ -1,3 +1,5 @@
+import {checkUserLogged} from './general/checkUserLogged.js'
+
 let validacionGridTable = true;
 // variable para poder acceder a la lista de pisos en todas las funciones
 let current_table = [];
@@ -329,5 +331,6 @@ const gridTable = async (flats = null) => {
 
 // Ejecuta las funciones al momento que cargue la pagina
 document.addEventListener('DOMContentLoaded',()=>{
+    checkUserLogged();
     fillTable();
 })

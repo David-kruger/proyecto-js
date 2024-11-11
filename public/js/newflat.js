@@ -1,5 +1,6 @@
 // Importar clases de Flat
 import {Flat} from "./classes/classes.js";
+import {checkUserLogged} from './general/checkUserLogged.js'
 
 const expressions = {
 	city: /^[A-Za-zÀ-ÿ]{2,}(?:\s[A-Za-zÀ-ÿ]+)*$/, // Letras y espacios, pueden llevar acentos.
@@ -76,6 +77,7 @@ const newFlatForm = (event) =>{
         position: "center",
         icon: "success",
         title: "Flat Created",
+        iconColor: '#46D678',
         showConfirmButton: false,
         timer: 1500
       });
@@ -150,8 +152,12 @@ const validateDate = (inputDate) => {
 // }
 
 document.addEventListener('DOMContentLoaded', ()=> {
-    // Addeventlistener para el formulario, necesario si se trabaja con export e import y el script type=module
+    // Verificar usuario loggeado
+    checkUserLogged();
+
+    // imagen de portada
     // coverImageRandom();
+    
     document.getElementById('form_newflat').addEventListener('submit', newFlatForm);
 
 })

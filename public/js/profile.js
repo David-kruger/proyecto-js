@@ -1,5 +1,6 @@
 // Import la clase Update
 import {Update} from "./classes/classes.js";
+import {checkUserLogged} from './general/checkUserLogged.js'
 
 // Objeto con las expresiones regulares para realizar las validaciones 
 const expressions = {
@@ -78,6 +79,7 @@ const updateProfile = (event) => {
         position: "center",
         icon: "success",
         title: "Account Updated",
+        iconColor: '#46D678',
         showConfirmButton: false,
         timer: 1500
       });
@@ -208,6 +210,9 @@ const profileImageRandom = async () => {
 // }
 
 document.addEventListener('DOMContentLoaded',()=>{
+    // Verificar usuario loggeado
+    checkUserLogged();
+    
     //api Imagen de portada y perfi;
     profileImageRandom();
     // coverImageRandom();

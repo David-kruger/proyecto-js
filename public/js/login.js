@@ -26,9 +26,10 @@ const loginForm = (event) => {
         })
         if (result !== undefined ) {
             Swal.fire({
-                position: "top-end",
+                position: "center",
                 icon: "success",
                 title: "LogIn Successful",
+                iconColor: '#46D678',
                 showConfirmButton: false,
                 timer: 1500
               });
@@ -46,6 +47,7 @@ const loginForm = (event) => {
             icon: "error",
             title: "Oops...",
             text: "User or password Incorrect!",
+            iconColor: '#f5005a',
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,

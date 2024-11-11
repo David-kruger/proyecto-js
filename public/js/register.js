@@ -104,6 +104,8 @@ const submitForm = (event) => {
                 icon: "error",
                 title: "Oops...",
                 text: "this email is already registered!",
+                iconColor: '#f5005a',
+                confirmButtonColor: '#47AFFF'
               });
             return;
         }
@@ -140,6 +142,7 @@ const submitForm = (event) => {
         position: "center",
         icon: "success",
         title: "Account Created",
+        iconColor: '#46D678',
         showConfirmButton: false,
         timer: 1500
       });
